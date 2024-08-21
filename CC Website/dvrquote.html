@@ -1,0 +1,257 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>DVR Quote</title>
+    <style>
+      
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.afot {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    font-family: sans-serif;
+}
+    
+.afot1 img {
+    position: relative;
+    right: 50px;
+    top: 25px;
+    width: 150px;
+    height: 150px;
+}
+
+.afot1 h4 {
+    margin-bottom: 10px;
+}
+
+.afot1 p {
+    padding: 3px;
+    margin: 0;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+
+tr.heading th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+
+tr.total td {
+    font-weight: bold;
+    border-top: 2px solid #333;
+}
+
+
+td:nth-child(1) {
+    width: 40%;
+}
+
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+    width: 20%;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <div class="afot">
+            <div class="afot1">
+                <h1>INVOICE</h1>
+                <h4>CORE SERVICES AND AUTOMATION</h4>
+                <p>1-22/7, IDA Colony, Shapur Nagar</p>
+                <p>Hyderabad, Telangana - 500055</p>
+                <p><b>CALL :</b> +91 9898989898</p>
+                <p><b>Email :</b> Core@gmail.com</p>
+            </div>
+            <div class="afot1">
+                <img src="images/core.jpeg" alt="logo">
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr class="heading">
+                    <th>Items</th>
+                    <th>Quantity</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tr2">
+                    <td class="td1"><span id="Megapixelselect"></span>MP Nightvision IR Cameras</td>
+                    <td><span id="Cameraselect"></span></td>
+                    <td><span id="mpc"></span>/-</td>
+                    <td><span id="camcost"></span>/-</td>
+                </tr>
+                <tr class="tr3">
+                    <td><span id="ch"></span> Channel DVR</td>
+                    <td>1</td>
+                    <td><span id="recorder"></span>/-</td>
+                    <td><span id="video"></span>/-</td>
+                </tr>
+                <tr class="tr4">
+                    <td>500GB Segate Hard Disk</td>
+                    <td>1</td>
+                    <td>2600/-</td>
+                    <td>2600/-</td>
+                </tr>
+                <tr class="tr5">
+                    <td>Power Supply</td>
+                    <td>1</td>
+                    <td><span id="power"></span>/-</td>
+                    <td><span id="supply"></span>/-</td>
+                </tr>
+                <tr class="tr6">
+                    <td>Connectors and Boxes</td>
+                    <td><span id="connect"></span></td>
+                    <td>100/-</td>
+                    <td><span id="cb"></span>/-</td>
+                </tr>
+                <tr class="tr7">
+                    <td>(3+1) CCTV Wire</td>
+                    <td>1</td>
+                    <td><span id="wire"></span>/-</td>
+                    <td><span id="wirecost"></span>/-</td>
+                </tr>
+                <tr class="tr8">
+                    <td>Rack</td>
+                    <td>1</td>
+                    <td><span id="rack"></span>/-</td>
+                    <td><span id="rackcost"></span>/-</td>
+                </tr>
+                <tr class="tr9 total">
+                    <td colspan="3"></td>
+                    <td><span id="total"></span>/-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const first = sessionStorage.getItem("cam-number");
+        const second = sessionStorage.getItem("megapixel");
+        var mpc;
+        if( second >= 5){
+            mpc = 1500;
+        }else if( second >= 3 ){
+            mpc = 1000;
+        }else if( second >= 2 ){
+            mpc = 750;
+        }else{
+            mpc = 500;
+        }
+        var cc = (first*mpc);
+        
+        var ps;
+        if (first > 16){
+            ps = 1200;
+        }else if (first > 8){
+            ps = 800;
+        }else if (first > 4){
+            ps = 600;
+        }else{
+            ps = 400; 
+        }
+
+        var ch;
+        var video;
+        if (first > 16){
+            video = 8000;
+            ch = 32;
+        }else if (first > 8){
+            video = 6000;
+            ch = 16;
+        }else if (first > 4){
+            video = 4000;
+            ch = 8;
+        }else{
+            video = 3000;
+            ch = 4;  
+        }
+
+       
+        // if (first > 16){
+        //     ch = 32;
+        // }else if (first > 8){
+        //     ch = 16;
+        // }else if (first > 4){
+        //     ch = 8;
+        // }else{
+        //     ch = 4; 
+        // }
+
+        var conn = (first*100);
+        var wire = ((first*10)*15);
+        var disk = 2600;
+        var rack;
+        if (first > 16){
+            rack = 1200;
+        }else if (first > 8){
+            rack = 1000;
+        }else if (first > 4){
+            rack = 800;
+        }else{
+            rack = 600; 
+        }
+        var tot = (ps+cc+video+disk+conn+wire+rack);
+
+        document.getElementById("Cameraselect").textContent= first;
+        document.getElementById("Megapixelselect").textContent= second;
+        document.getElementById("mpc").textContent= mpc;
+        document.getElementById("camcost").textContent= cc;
+        document.getElementById("ch").textContent= ch;
+        document.getElementById("video").textContent= video;
+        document.getElementById("recorder").textContent= video;
+        document.getElementById("power").textContent= ps;
+        document.getElementById("supply").textContent= ps;
+        document.getElementById("cb").textContent= conn;
+        document.getElementById("connect").textContent = first;
+        document.getElementById("wire").textContent= wire;
+        document.getElementById("wirecost").textContent= wire;
+        document.getElementById("rack").textContent= rack;
+        document.getElementById("rackcost").textContent= rack;
+        document.getElementById("total").textContent= tot;
+        
+    </script>
+</body>
+</html>
