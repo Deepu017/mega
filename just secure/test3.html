@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Design</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+footer {
+        font-size: 0.9rem;
+    }
+
+    footer h5 {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-iconsfooter a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-iconsfooter a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-iconsfooter a:nth-child(1):hover {
+        background-color: #3b5998;
+    }
+
+    .social-iconsfooter a:nth-child(2):hover {
+        background-color: #1da1f2;
+    }
+
+    .social-iconsfooter a:nth-child(3):hover {
+        background-color: #e1306c;
+    }
+
+    .social-iconsfooter a:nth-child(4):hover {
+        background-color: #0077b5;
+    }
+
+    .btn-link {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .btn-link:hover {
+        color: #007bff !important;
+    }
+
+    .btn-primary, .btn-success, .btn-info {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover, .btn-success:hover, .btn-info:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 767.98px) {
+        footer .col-md-3 {
+            text-align: center;
+        }
+
+        .social-iconsfooter {
+            justify-content: center;
+        }
+
+
+        .btn-link {
+            justify-content: center;
+        }
+    }
+  </style>
+</head>
+<body>
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <img src="path/to/your/logo.png" alt="Company Logo" class="mb-3" style="max-width: 150px;">
+                    <p class="mb-4">Smart Secures is your trusted partner in CCTV installation and security solutions. We provide cutting-edge technology to keep your property safe and secure.</p>
+                    <div class="social-iconsfooter d-flex">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Address and Working Hours -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Security St, Hyderabad, 500001</p>
+                    <p><i class="fas fa-phone me-2"></i> +91 1234567890</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@smartsecures.com</p>
+                    <h5 class="mt-4 mb-3">Working Hours</h5>
+                    <p><i class="fas fa-clock me-2"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                    <p><i class="fas fa-clock me-2"></i> Sat-Sun: 10:00 AM - 4:00 PM</p>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3 text-center">Quick Links</h5>
+                    <div class="d-flex flex-column ">
+                        <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Home</a>
+                        <a href="#" class="btn btn-link text-light text-start p-0 mb-2">About</a>
+                        <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Products</a>
+                        <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Services</a>
+                        <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Packages</a>
+                        <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Blogs</a>
+                        <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Contact Us</a>
+                    </div>
+                </div>
+    
+                <!-- Call to Action Buttons -->
+                <div class="col-md-3">
+                    <h5 class="mb-3">Get In Touch</h5>
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-primary mb-2">
+                            <i class="fas fa-quote-right me-2"></i> Get a Quote
+                        </a>
+                        <a href="#" class="btn btn-success mb-2">
+                            <i class="fas fa-calendar-check me-2"></i> Book an Appointment
+                        </a>
+                        <a href="tel:+911234567890" class="btn btn-info">
+                            <i class="fas fa-phone-alt me-2"></i> Call Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

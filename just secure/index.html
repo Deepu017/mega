@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Top Bar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+               :root {
+            --secondary-color: #3498db;
+            --light-color: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+        .top-bar {
+            background-color: #ececec;
+            padding: 10Px;
+        }
+        .social-icons a {
+            color: #343a40;
+            font-size: 16px;
+            margin-right: 10px;
+            padding: 3px 10px;
+            border-radius: 50%;
+            border: 2px solid #343a40;
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icons a:hover {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+        .contact-buttons .btn {
+            color: #ffffff;
+            background-color: #3498db;
+            border: none;
+            padding: 5px 15px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-left: 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .contact-buttons .btn:hover {
+            background-color: #ff9933;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .contact-buttons .btn i {
+            margin-right: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .social-icons, .contact-buttons {
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-buttons .btn {
+                margin: 5px;
+            }
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand img {
+            max-width: 200px;
+        }
+        .navbar-nav .nav-item .nav-link {
+            color: #ecf0f1;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #3498db;
+        }
+        .navbar-nav .dropdown-menu {
+            background-color: #343a40;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .navbar-nav .dropdown-menu .dropdown-item {
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar-nav .dropdown-menu .dropdown-item:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-quote {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-quote:hover {
+            background-color: white;
+            color: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 2px solid #3498db;
+        }
+
+        /* Dropdown on Hover */
+        .navbar-nav .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+            .navbar-nav .nav-item .nav-link {
+                margin-right: 0;
+                font-size: 15px;
+            }
+            .btn-quote {
+                margin-top: 10px;
+            }
+        }
+
+        .custom-carousel-container {
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            width: 100%;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 80vh; /* Adjust this value as needed */
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+
+        .custom-carousel-indicators {
+            bottom: 20px;
+        }
+
+        .custom-carousel-indicators [data-bs-target] {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
+
+            .custom-carousel-indicators {
+                bottom: 10px;
+            }
+
+            .custom-carousel-indicators [data-bs-target] {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        .aboutdiv {
+            padding: 60px 0;
+        }
+        .aboutdiv h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+
+        }
+        .aboutdiv h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+
+            margin-top: 10px;
+        }
+        .aboutdiv p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+        .aboutdiv .img-fluid {
+            max-width: 100%;
+            height: 450px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .aboutdiv h2 {
+                font-size: 1.8rem;
+            }
+            .aboutdiv h4 {
+                font-size: 1rem;
+            }
+            .aboutdiv p {
+                font-size: 0.95rem;
+            }
+            .aboutdiv {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .aboutdiv h2 {
+                font-size: 1.6rem;
+            }
+            .aboutdiv h4 {
+                font-size: 0.95rem;
+            }
+            .aboutdiv p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .services-section {
+      padding: 60px 0;
+    }
+    .left-content {
+      padding-right: 30px;
+    }
+    .left-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #3498db;
+
+    }
+    .left-content p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .left-content ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .left-content ul li {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .left-content ul li::before {
+      content: "\f0da";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #3498db;
+    }
+    .right-content .service-box {
+      position: relative;
+      overflow: hidden;
+      height: 250px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease-in-out;
+      color: white;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    .right-content .service-box:hover {
+      transform: scale(1.05);
+    }
+    .service-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 1.25rem;
+    }
+
+    .containerabout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-content {
+            padding: 4rem 0;
+            background-color: #fff;
+        }
+
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            margin-bottom: 1rem;
+            font-weight:800;
+        }
+        .about-section h3 {
+            font-weight:700;
+            font-size: large;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-item {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--light-color);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-item i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .conta2 {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .testibar {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .testibar h5 {
+            color: #3498db;
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight:bolder;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .testibar h2 {
+            font-size: 2rem;
+            margin-bottom: 0;
+            color: #2c3e50;
+        }
+        .testimonial-item {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 15px;
+            transition: transform 0.3s ease;
+        }
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #3498db;
+        }
+        .testimonial-img {
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+            
+        }
+        .testimonial-name {
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .testimonial-content {
+            padding: 30px;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #34495e;
+        }
+        .owl-dots {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .owl-dot span {
+            width: 12px;
+            height: 12px;
+            margin: 5px 7px;
+            background: #d6d6d6;
+            display: block;
+            transition: opacity 200ms ease;
+            border-radius: 30px;
+        }
+        .owl-dot.active span {
+            background-color: #3498db;
+            width: 25px;
+        }
+
+        .quote-form, .features-wrapper {
+        height: 100%;
+    }
+
+    .quote-and-features h2 {
+        color: #3498db;
+        font-weight: 600;
+    }
+    .text-bluury{
+        color: #3498db;
+    }
+    .quote-and-features .form-control {
+        border-radius: 0;
+    }
+
+    .quote-and-features .btn-primary {
+        background-color: #3498db;
+        border-color: #3498db;
+        border-radius: 0;
+        padding: 10px 30px;
+        width: 100%;
+    }
+
+    .quote-and-features .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .features {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .feature {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature:hover {
+        transform: translateX(5px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .icon-wrapper {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 123, 255, 0.1);
+        border-radius: 50%;
+    }
+
+    .feature h6 {
+        color: #333;
+        font-weight: 650;
+        font-size: large;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 991.98px) {
+        .quote-form, .features-wrapper {
+            height: auto;
+        }
+        .features-wrapper {
+            margin-top: 2rem;
+        }
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
+
+    footer h5 {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-iconsfooter a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-iconsfooter a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-iconsfooter a:nth-child(1):hover {
+        background-color: #3b5998;
+    }
+
+    .social-iconsfooter a:nth-child(2):hover {
+        background-color: #1da1f2;
+    }
+
+    .social-iconsfooter a:nth-child(3):hover {
+        background-color: #e1306c;
+    }
+
+    .social-iconsfooter a:nth-child(4):hover {
+        background-color: #0077b5;
+    }
+
+    .btn-link {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .btn-link:hover {
+        color: #007bff !important;
+    }
+
+    .btn-primary, .btn-success, .btn-info {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover, .btn-success:hover, .btn-info:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 767.98px) {
+        footer .col-md-3 {
+            text-align: center;
+        }
+
+        .social-iconsfooter {
+            justify-content: center;
+        }
+
+
+        .btn-link {
+            justify-content: center;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div class="top-bar d-flex justify-content-between align-items-center flex-wrap">
+    <div class="social-icons d-flex px-5">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="contact-buttons d-flex px-5">
+        <a href="#" class="btn"><i class="far fa-comment-dots fa-lg"></i> Live Chat</a>
+        <a href="tel:+1234567890" class="btn"><i class="fas fa-phone-alt fa-lg"></i> Call Us</a>
+        <a href="mailto:info@company.com" class="btn"><i class="far fa-envelope fa-lg"></i> Mail Us</a>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark px-5">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+        <img src="images/corelogo.png" alt="Logo">
+    </a>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                    <a class="dropdown-item" href="#">Service 1</a>
+                    <a class="dropdown-item" href="#">Service 2</a>
+                    <a class="dropdown-item" href="#">Service 3</a>
+                    <a class="dropdown-item" href="#">Service 4</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="packagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Packages
+                </a>
+                <div class="dropdown-menu" aria-labelledby="packagesDropdown">
+                    <a class="dropdown-item" href="#">Package 1</a>
+                    <a class="dropdown-item" href="#">Package 2</a>
+                    <a class="dropdown-item" href="#">Package 3</a>
+                    <a class="dropdown-item" href="#">Package 4</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-quote" href="#">Get a Quote</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="custom-carousel-container">
+    <div id="customCarouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="custom-carousel-indicators carousel-indicators">
+            <button type="button" data-bs-target="#customCarouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#customCarouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#customCarouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/ban1.png" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="images/ban2.png" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="images/ban3.png" class="d-block w-100" alt="Slide 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#customCarouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#customCarouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+<div class="container aboutdiv">
+    <div class="row align-items-center">
+        <!-- Left Side Content -->
+        <div class="col-md-6">
+            <h2>Core Services</h2>
+            <h4>CCTV Sales, Installation, Service and More in Hyderabad</h4>
+            <p>At Core Services, we offer a comprehensive range of CCTV solutions designed to meet the diverse security needs of both residential and commercial clients in Hyderabad. Our expert team provides professional installation services, ensuring that your CCTV systems are set up for optimal performance.</p>
+            <p>In addition to sales and installation, we also offer ongoing maintenance and service to ensure that your CCTV systems continue to operate efficiently. Whether you need a new installation, an upgrade to an existing system, or regular maintenance, we have the expertise to help you stay secure.</p>
+        </div>
+
+        <!-- Right Side Image -->
+        <div class="col-md-6">
+            <img src="images/about.png" alt="CCTV Installation" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<section class="services-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 left-content">
+          <h2>Our Services</h2>
+          <p>At EDR Services, we specialize in delivering a wide array of CCTV services to meet the unique security needs of our clients. Comprehensive solutions are designed by us  to provide peace of mind, ensuring that your property is protected around the clock with the latest in surveillance technology.</p>
+          <ul>
+            <li><strong>High-Definition Surveillance Systems</strong> </li>
+            <li><strong>Advanced Monitoring Solutions</strong></li>
+            <li><strong>Expert Installation & Maintenance</strong></li>
+            <li><strong>Remote Access & Control</strong></li>
+            <li><strong>24/7 Monitoring</strong></li>
+            <li><strong>Custom Security Solutions</strong></li>
+          </ul>
+        </div>
+        <div class="col-md-8 right-content">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="service-box" style="background-image: url('images/ser.jpg');">
+                <div class="service-title">Security Surveillance Systems</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-box" style="background-image: url('images/installation.jpeg');">
+                <div class="service-title">CCTV Installations</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-box" style="background-image: url('images/cc.webp');">
+                <div class="service-title">CCTV Sales & Service</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-box" style="background-image: url('images/ip.png');">
+                <div class="service-title">IP Camera Installation</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-box" style="background-image: url('images/wl.webp');">
+                <div class="service-title">Wireless Cameras</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-box" style="background-image: url('images/camera.jpg');">
+                <div class="service-title">CCTV Maintenance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="about-content">
+    <div class="containerabout">
+        <div class="about-section">
+            <h2>Why Choose Us</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Expert Team</h3>
+                    <p>Our technicians are highly trained and certified in the latest CCTV technologies.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-tools"></i>
+                    <h3>Quality Equipment</h3>
+                    <p>We use only top-of-the-line, reliable security equipment from trusted manufacturers.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is available round the clock to assist you with any issues.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Comprehensive Solutions</h3>
+                    <p>From installation to maintenance, we offer end-to-end security solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="conta2">
+<div class="testibar">
+    <h5>Client Testimonials</h5>
+    <h2>What Our Clients Say About Our CCTV Installation Services</h2>
+</div>
+<div class="owl-carousel testimonial-carousel">
+    <div class="testimonial-item">
+        <div class="testimonial-header">
+            <img src="images/t5.png" alt="Vamsi Matturi" class="testimonial-img">
+            <h4 class="testimonial-name">Vamsi Matturi</h4>
+        </div>
+        <div class="testimonial-content">
+            "I recently set up a <strong>CCTV surveillance system</strong> from Smart Secures, and I am amazed by the product's quality. The customer service team was incredibly helpful. The cameras provide crystal-clear images, even in low light conditions. I highly recommend Smart Secures for top-notch CCTV Installation Services."
+        </div>
+    </div>
+    <div class="testimonial-item">
+        <div class="testimonial-header">
+            <img src="images/t2.png" alt="Rajesh" class="testimonial-img">
+            <h4 class="testimonial-name">Rajesh</h4>
+        </div>
+        <div class="testimonial-content">
+            "The team at Smart Secures provided exceptional service for CCTV Installation in our apartment complex. They offered affordable rates, genuine products, and top-of-the-line CP Plus brands. Without a doubt, they are the leading CCTV installation service in Hyderabad. Highly recommended!"
+        </div>
+    </div>
+    <div class="testimonial-item">
+        <div class="testimonial-header">
+            <img src="images/t3.png" alt="Siva Kumar" class="testimonial-img">
+            <h4 class="testimonial-name">Siva Kumar</h4>
+        </div>
+        <div class="testimonial-content">
+            "Smart Secures installed CCTV cameras at my home in Hyderabad, and I couldn't be more satisfied. The technicians were professional, friendly, and addressed all my concerns. The installed system captures remarkably clear footage, both day and night. It's a great investment in our home security."
+        </div>
+    </div>
+    <div class="testimonial-item">
+        <div class="testimonial-header">
+            <img src="images/t4.png" alt="Kalyan Goud" class="testimonial-img">
+            <h4 class="testimonial-name">Kalyan Goud</h4>
+        </div>
+        <div class="testimonial-content">
+            "I recently engaged Smart Secures for CCTV installation in my office, and I'm thoroughly impressed. Their team demonstrated exceptional skills and had access to all the top brands. The installation was efficient, and the service was outstanding. For anyone looking for a reliable CCTV installation company in Hyderabad, Smart Secures is the way to go!"
+        </div>
+    </div>
+</div>
+</div>
+<section class="quote-and-features py-5">
+<div class="container">
+    <div class="row">
+        <!-- Left side: Quote Form -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="quote-form p-4 bg-white shadow-lg rounded">
+                <h2 class="mb-3">Get a Quote</h2>
+                <p class="mb-4">Fill the form, we will respond to you within few hours.</p>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="tel" class="form-control" placeholder="Mobile No">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="3" placeholder="Your Requirements"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Right side: Features -->
+        <div class="col-lg-6">
+            <div class="features-wrapper p-4 bg-white shadow-lg rounded">
+                <h2 class="mb-4 text-center">Hyderabad's Most Trusted Security Experts</h2>
+                <div class="features">
+                    <div class="feature d-flex align-items-center mb-3 p-2 bg-light rounded">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-check-circle fa-lg text-bluury"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 px-3">High Quality Service</h6>
+                        </div>
+                    </div>
+                    <div class="feature d-flex align-items-center mb-3 p-2 bg-light rounded">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-headset fa-lg text-bluury"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 px-3">24/7 Customer Support</h6>
+                        </div>
+                    </div>
+                    <div class="feature d-flex align-items-center mb-3 p-2 bg-light rounded">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-users-cog fa-lg text-bluury"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 px-3">Professionally Trained Employees</h6>
+                        </div>
+                    </div>
+                    <div class="feature d-flex align-items-center mb-3 p-2 bg-light rounded">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-certificate fa-lg text-bluury"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 px-3">Quality Assured</h6>
+                        </div>
+                    </div>
+                    <div class="feature d-flex align-items-center mb-3 p-2 bg-light rounded">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-bolt fa-lg text-bluury"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 px-3">Fast Service and Installation</h6>
+                        </div>
+                    </div>
+                    <div class="feature d-flex align-items-center mb-3  p-2 bg-light rounded">
+                        <div class="icon-wrapper  me-3">
+                            <i class="fas fa-smile fa-lg text-bluury"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 px-3">Customer-Focused</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Company Info -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <img src="path/to/your/logo.png" alt="Company Logo" class="mb-3" style="max-width: 150px;">
+                <p class="mb-4">Smart Secures is your trusted partner in CCTV installation and security solutions. We provide cutting-edge technology to keep your property safe and secure.</p>
+                <div class="social-iconsfooter d-flex">
+                    <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Address and Working Hours -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <h5 class="mb-3">Contact Us</h5>
+                <p><i class="fas fa-map-marker-alt me-2"></i> 123 Security St, Hyderabad, 500001</p>
+                <p><i class="fas fa-phone me-2"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope me-2"></i> info@smartsecures.com</p>
+                <h5 class="mt-4 mb-3">Working Hours</h5>
+                <p><i class="fas fa-clock me-2"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                <p><i class="fas fa-clock me-2"></i> Sat-Sun: 10:00 AM - 4:00 PM</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <h5 class="mb-3 ">Quick Links</h5>
+                <div class="d-flex flex-column ">
+                    <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Home</a>
+                    <a href="#" class="btn btn-link text-light text-start p-0 mb-2">About</a>
+                    <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Products</a>
+                    <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Services</a>
+                    <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Packages</a>
+                    <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Blogs</a>
+                    <a href="#" class="btn btn-link text-light text-start p-0 mb-2">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Call to Action Buttons -->
+            <div class="col-md-3">
+                <h5 class="mb-3">Get In Touch</h5>
+                <div class="d-grid gap-2">
+                    <a href="#" class="btn btn-primary mb-2">
+                        <i class="fas fa-quote-right me-2"></i> Get a Quote
+                    </a>
+                    <a href="#" class="btn btn-success mb-2">
+                        <i class="fas fa-calendar-check me-2"></i> Book an Appointment
+                    </a>
+                    <a href="tel:+911234567890" class="btn btn-info">
+                        <i class="fas fa-phone-alt me-2"></i> Call Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".testimonial-carousel").owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            autoplayHoverPause: true,
+            responsive:{
+                0:{
+                    items: 1
+                },
+                768:{
+                    items: 2
+                },
+                992:{
+                    items: 3
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
